@@ -1,0 +1,51 @@
+body{
+    background-color:rgb(40, 37, 56);
+    font-family: Arial, Helvetica, sans-serif;
+    color: aqua;
+    overflow: hidden;
+}
+
+body h2 {
+    font-size: 30px;
+}
+
+canvas{
+    position: relative;
+    border: 2px solid white;
+}
+
+#speedText {
+    position: relative;
+    top: -495px;
+    left: 800px;
+}
+
+#speed {
+    position: relative;
+    top: -500px;
+    left: 800px;
+}
+
+#sizeText {
+    position: relative;
+    top: -445px;
+    left: 800px;
+}
+
+#size {
+    position: relative;
+    top: -450px;
+    left: 800px;
+}
+
+#colorText {
+    position: relative;
+    top: -395px;
+    left: 800px;
+}
+
+#color {
+    position: relative;
+    top: -400px;
+    left: 800px;
+}
