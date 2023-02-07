@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,29 @@
     <script src="Fireworks.js" defer></script>
     <link rel="stylesheet" href="Fireworks.css">
 </head>
+
 <body>
-    <h2>It's fireworkin' time!</h2>
-    <canvas id="canvas"></canvas>
-    <p id="speedText">Speed</p>
-    <input id="speed" type="range" min="1" max="100" value="50">
-    <p id="sizeText">Size</p>
-    <input id="size" type="range" min="1" max="100" value="50">
-    <p id="colorText">Color</p>
-    <input id="color" type="color" value="#ffffff">
+    <form>
+        <h2>It's fireworkin' time!</h2>
+        <canvas id="canvas"></canvas>
+        <p id="speedText">Speed</p>
+        <input name="speed" id="speed" type="range" min="1" max="100" value="50">
+        <p id="sizeText">Size</p>
+        <input name="size" id="size" type="range" min="1" max="100" value="50">
+        <p id="particleText">Amount of particles</p>
+        <input name="particle" id="particle" type="range" min="1" max="100" value="10">
+        <p id="lifespanText">Lifespan</p>
+        <input name="lifespan" id="lifespan" type="range" min="1" max="600" value="250">
+        <p id="colorText">Color</p>
+        <input name="color" id="color" type="color" value="#ffffff">
+        <br>
+        <input name="name" id="name" type="text" placeholder="Type Rocket Preset Name">
+        <button id="submit">Save current Preset</button> <br>
+        <input name="load" id="load" type="text" placeholder="Select Name of to Load object">
+        <button id="loadButton">Load</button> <br>
+        <button id="showButton">Show All</button>
+        <p id="Anzeige"></p>
+    </form>
 </body>
+
 </html>

@@ -16,31 +16,55 @@ canvas{
 
 #speedText {
     position: relative;
-    top: -495px;
+    top: -520px;
     left: 800px;
 }
 
 #speed {
     position: relative;
-    top: -500px;
+    top: -515px;
     left: 800px;
 }
 
 #sizeText {
     position: relative;
-    top: -445px;
+    top: -495px;
     left: 800px;
 }
 
 #size {
     position: relative;
+    top: -485px;
+    left: 800px;
+}
+
+#particleText {
+    position: relative;
+    top: -475px;
+    left: 800px;
+}
+
+#particle {
+    position: relative;
+    top: -470px;
+    left: 800px;
+}
+
+#lifespanText {
+    position: relative;
     top: -450px;
+    left: 800px;
+}
+
+#lifespan {
+    position: relative;
+    top: -445px;
     left: 800px;
 }
 
 #colorText {
     position: relative;
-    top: -395px;
+    top: -405px;
     left: 800px;
 }
 
@@ -48,4 +72,34 @@ canvas{
     position: relative;
     top: -400px;
     left: 800px;
+}
+
+#name {
+    position: relative;
+    top: -850px;
+    left: 1050px;
+}
+
+#submit {
+    position: relative;
+    top: -820px;
+    left: 895px;
+}
+
+#load {
+    position: relative;
+    top: -780px;
+    left: 1050px;
+}
+
+#loadButton {
+    position: relative;
+    top: -750px;
+    left: 940px;
+}
+
+#showButton {
+    position: relative;
+    top: -710px;
+    left: 1105px;
 }
