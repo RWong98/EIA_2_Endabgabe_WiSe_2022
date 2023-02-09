@@ -1,67 +1,71 @@
-window.addEventListener("load", () => {hdlLoad()});
-let explosion: Boolean = false;
-const canvas: HTMLCanvasElement = document.querySelector("#canvas") as HTMLCanvasElement;
-const ctx: CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D;
-let x: number = 0;
-let interval: number;
-let colorWheel: HTMLInputElement = document.querySelector("#color") as HTMLInputElement;
-let speedRange: HTMLInputElement = document.querySelector("#speed") as HTMLInputElement;
-let sizeRange: HTMLInputElement = document.querySelector("#size") as HTMLInputElement;
-let updateRate: number = 50;
-let color: string = "white";
-let size: number = 50;
-function hdlLoad() {
-    instListener();
-    //Resize
-    canvas.height = 600;
-    canvas.width = 700;
-}
+namespace Rockets {
 
-function instListener() {
-    canvas.addEventListener("click", (e)=>{startExplosion(e);});
-    colorWheel.addEventListener("change", updateValues);
-    speedRange.addEventListener("change", updateValues);
-    sizeRange.addEventListener("change", updateValues);
-}
-function updateValues(): void {
-    updateRate = parseInt(speedRange.value);
-    color = colorWheel.value;
-    size = parseInt(sizeRange.value);
-}
+    window.addEventListener("load", () => { hdlLoad() });
+    let explosion: Boolean = false;
+    export const canvas: HTMLCanvasElement = document.querySelector("#canvas") as HTMLCanvasElement;
+    export const ctx: CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D;
+    let x: number = 0;
+    let interval: number;
+    const colorWheel: HTMLInputElement = document.querySelector("#color") as HTMLInputElement;
+    const speedRange: HTMLInputElement = document.querySelector("#speed") as HTMLInputElement;
+    const sizeRange: HTMLInputElement = document.querySelector("#size") as HTMLInputElement;
+    const particleRange: HTMLInputElement = document.querySelector("#particle") as HTMLInputElement;
+    const lifespanRange: HTMLInputElement = document.querySelector("#lifespan") as HTMLInputElement;
+    const presetText: HTMLInputElement = document.querySelector("#name") as HTMLInputElement;
+    const loadText: HTMLInputElement = document.querySelector("#load") as HTMLInputElement;
+    const loadButton: HTMLInputElement = document.querySelector("#loadButton") as HTMLInputElement;
+    const anzeige: HTMLElement = document.querySelector("#Anzeige") as HTMLElement;
+    const showButton: HTMLInputElement = document.querySelector("#showButton") as HTMLInputElement;
 
-function startExplosion(e: MouseEvent): void{
-    if(explosion == false){
-    let rect = canvas.getBoundingClientRect();
-    let x: number = e.clientX - rect.left;
-    let y: number = e.clientY - rect.top;
-    interval = setInterval(()=>{explode(x,y)}, updateRate);
-    explosion = true;
-    };
-}
+    //ROCKET PARAMETER
+    let color: string;
+    let size: number;
+    let particleAmount: number;
+    let speed: number;
+    let lifespan: number;
+    let rName: String;
 
-function explode(xM: number, yM: number): void {
-    if (x<=350) {
-        x = x + 10;
-        ctx.fillStyle = "rgba(40, 37, 56, 0.3)";
-        ctx.fillRect(0, 0, 700, 600);
-        ctx.fillStyle = color;
-        ctx.fillRect(xM,yM + x, size, x)
-        ctx.fillRect(xM,yM - x, size, -x)
-        ctx.fillRect(xM + x,yM, x, size)
-        ctx.fillRect(xM - x,yM, -x, size)
-        ctx.fillRect(xM + x,yM + x, size, x)
-        ctx.fillRect(xM - x,yM - x, size, -x)
-        ctx.fillRect(xM + x,yM + x, x, size)
-        ctx.fillRect(xM - x,yM - x, -x, size)
-        ctx.fillRect(xM - x,yM + x, size, x)
-        ctx.fillRect(xM + x,yM - x, size, -x)
-        ctx.fillRect(xM + x,yM - x, x, size)
-        ctx.fillRect(xM - x,yM + x, -x, size)
+    // VECTOR INTERFACE
+    export interface Vector {
+        x: number,
+        y: number
     }
-    else{
-        ctx.clearRect(0, 0, 700, 600);
-        clearInterval(interval);
-        x=0;
-        explosion = false;
-    };
+
+
+    function hdlLoad() {
+        instListener();
+        updateValues();
+        //Resize
+        canvas.height = 600;
+        canvas.width = 700;
+    }
+
+    function instListener() {
+        canvas.addEventListener("click", (e) => { startExplosion(e); });
+        colorWheel.addEventListener("change", updateValues);
+        speedRange.addEventListener("change", updateValues);
+        particleRange.addEventListener("change", updateValues);
+        lifespanRange.addEventListener("change", updateValues);
+        sizeRange.addEventListener("change", updateValues);
+        presetText.addEventListener("change", updateValues);
+
+    }
+    function updateValues(): void {
+        color = colorWheel.value;
+        size = parseInt(sizeRange.value);
+        rName = presetText.value + "";
+        speed = parseInt(speedRange.value);
+        particleAmount = parseInt(particleRange.value);
+        lifespan = parseInt(lifespanRange.value)
+    }
+
+    function startExplosion(e: MouseEvent): void{
+        let rect = canvas.getBoundingClientRect();
+        let x: number = e.clientX - rect.left;
+        let y: number = e.clientY - rect.top;
+        let spawnpoint: Vector = {x, y};
+        let rocket: Rocket = new Rocket(spawnpoint, color, size, particleAmount, speed, lifespan);
+        rocket.launch();
+    }
+
 }
