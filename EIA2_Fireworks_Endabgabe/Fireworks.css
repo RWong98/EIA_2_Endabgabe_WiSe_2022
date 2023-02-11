@@ -106,7 +106,6 @@ canvas{
 
 #Anzeige {
     position: relative;
-    background-color: rgb(227, 20, 20);
     top: -700px;
-    left: 1000px;
+    left: 1050px;
 }
