@@ -109,3 +109,11 @@ canvas{
     top: -700px;
     left: 1050px;
 }
+
+#easterEgg {
+    position: relative;
+    top: -450px;
+    left: 1490px;
+    background-color: rgb(40, 37, 56);
+    border: 20px;
+}

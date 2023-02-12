@@ -1,7 +1,6 @@
 namespace Rockets {
 
     window.addEventListener("load", () => { hdlLoad() });
-    let explosion: Boolean = false;
     export const canvas: HTMLCanvasElement = document.querySelector("#canvas") as HTMLCanvasElement;
     export const ctx: CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D;
     const colorWheel: HTMLInputElement = document.querySelector("#color") as HTMLInputElement;
@@ -21,7 +20,7 @@ namespace Rockets {
     let particleAmount: number;
     let speed: number;
     let lifespan: number;
-    let rName: String;
+    let rName: string;
 
     //Server for Data
     const serverLink: string = "https://webuser.hs-furtwangen.de/~wongricc/Database/";
@@ -93,7 +92,7 @@ namespace Rockets {
             console.log(info);
         }
         else {
-            anzeige.innerHTML = "Gib bitte einen Namen ein!";
+            anzeige.innerHTML = "DE: Gib bitte einen Namen ein! <br>" + "GB: Please enter a name! <br>" + "WS: Fa'amolemole tu'u se igoa!";
         }
     }
 
@@ -111,7 +110,7 @@ namespace Rockets {
         }
         anzeige.innerHTML = "";
         for (let data of infoTroschka) {
-            anzeige.innerHTML += "Name: " + data.name + " Color: " + data.color + " Size: " + data.size + " P-Amount: " + data.particleAmount + " P-Speed: " + data.speed + data.lifespan + "<br>";
+            anzeige.innerHTML += "Name: " + data.name + " Color: " + data.color + "<br>" + " Size: " + data.size + " P-Amount: " + data.particleAmount + "<br>" + " P-Speed: " + data.speed + data.lifespan + "<br>" + "<br>";
         }
 
     }
@@ -131,7 +130,7 @@ namespace Rockets {
 
         for (let data of infoTroschka) {
             if (data.name == loadText.value) {
-                anzeige.innerHTML = "Name: " + data.name + " Color: " + data.color + " Size: " + data.size + " P-Amount: " + data.particleAmount + " P-Speed: " + data.speed + data.lifespan + "<br>";
+                anzeige.innerHTML = "Name: " + data.name + " Color: " + data.color + "<br>" + " Size: " + data.size + " P-Amount: " + data.particleAmount + "<br>" + " P-Speed: " + data.speed + data.lifespan + "<br>" + "<br>";
                 rName = data.name;
                 color = data.color;
                 size = data.size;

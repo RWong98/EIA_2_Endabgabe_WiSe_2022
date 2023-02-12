@@ -11,7 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var Rockets;
 (function (Rockets) {
     window.addEventListener("load", () => { hdlLoad(); });
-    let explosion = false;
     Rockets.canvas = document.querySelector("#canvas");
     Rockets.ctx = Rockets.canvas.getContext("2d");
     const colorWheel = document.querySelector("#color");
@@ -74,7 +73,7 @@ var Rockets;
                 console.log(info);
             }
             else {
-                anzeige.innerHTML = "Gib bitte einen Namen ein!";
+                anzeige.innerHTML = "DE: Gib bitte einen Namen ein! <br>" + "GB: Please enter a name! <br>" + "WS: Fa'amolemole tu'u se igoa!";
             }
         });
     }
@@ -93,7 +92,7 @@ var Rockets;
             }
             anzeige.innerHTML = "";
             for (let data of infoTroschka) {
-                anzeige.innerHTML += "Name: " + data.name + " Color: " + data.color + " Size: " + data.size + " P-Amount: " + data.particleAmount + " P-Speed: " + data.speed + data.lifespan + "<br>";
+                anzeige.innerHTML += "Name: " + data.name + " Color: " + data.color + "<br>" + " Size: " + data.size + " P-Amount: " + data.particleAmount + "<br>" + " P-Speed: " + data.speed + data.lifespan + "<br>" + "<br>";
             }
         });
     }
@@ -112,7 +111,7 @@ var Rockets;
             }
             for (let data of infoTroschka) {
                 if (data.name == loadText.value) {
-                    anzeige.innerHTML = "Name: " + data.name + " Color: " + data.color + " Size: " + data.size + " P-Amount: " + data.particleAmount + " P-Speed: " + data.speed + data.lifespan + "<br>";
+                    anzeige.innerHTML = "Name: " + data.name + " Color: " + data.color + "<br>" + " Size: " + data.size + " P-Amount: " + data.particleAmount + "<br>" + " P-Speed: " + data.speed + data.lifespan + "<br>" + "<br>";
                     rName = data.name;
                     color = data.color;
                     size = data.size;
